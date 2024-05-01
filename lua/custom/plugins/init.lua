@@ -4,4 +4,12 @@
 -- See the kickstart.nvim README for more information
 return {
   { 'ellisonleao/gruvbox.nvim', opts = {} },
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    opts = {
+      open_mapping = [[<leader>tt]],
+      size = 30,
+    },
+  },
 }
