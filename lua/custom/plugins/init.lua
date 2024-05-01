@@ -9,7 +9,7 @@ return {
     version = '*',
     opts = {
       open_mapping = [[<leader>tt]],
-      size = 30,
+      size = 50,
     },
   },
 }
