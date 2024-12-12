@@ -7,19 +7,26 @@ return {
   {
     'akinsho/toggleterm.nvim',
     version = '*',
-
-    opts = {
-      open_mapping = [[<leader>tt]],
-      insert_mappings = false,
-      size = 50,
-    },
+    config = function()
+      require('toggleterm').setup {
+        open_mapping = [[<leader>tt]],
+        start_in_insert = true,
+        autochir = true,
+        direction = 'float',
+      }
+      if package.config:sub(1, 1) == '\\' then
+        -- I am on Windows
+        vim.cmd [[let &shell = '"C:\Program Files\Git\bin\bash.exe"']]
+        vim.cmd [[let &shellcmdflag = '-s']]
+      end
+    end,
   },
   {
     'toppair/peek.nvim',
     event = { 'VeryLazy' },
     build = 'deno task --quiet build:fast',
     config = function()
-      require('peek').setup()
+      require('peek').setup { app = 'browser' }
       vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
       vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
     end,
