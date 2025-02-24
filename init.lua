@@ -1,6 +1,7 @@
 -- NOTE: Custom Vim options, autocommands, and keybinds
 vim.opt.number = true
 vim.opt.textwidth = 100
+vim.opt.expandtab = true
 vim.opt.formatoptions:append 'c'
 vim.opt.colorcolumn = '100'
 
@@ -391,7 +392,7 @@ require('lazy').setup({
                     filetypes = { 'typescript' },
                 },
                 angularls = {
-                    filetypes = { 'htmlangular' },
+                    filetypes = { 'htmlangular', 'typescript' },
                     hint = { enable = true },
                 },
             }
