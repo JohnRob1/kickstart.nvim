@@ -19,4 +19,7 @@ return {
     },
     config = true,
   },
+  {
+    'github/copilot.vim',
+  },
 }
