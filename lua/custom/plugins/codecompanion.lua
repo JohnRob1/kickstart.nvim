@@ -19,8 +19,4 @@ return {
       ft = { 'markdown', 'codecompanion' },
     },
   },
-  {
-    'mini.diff',
-    opts = {},
-  },
 }
