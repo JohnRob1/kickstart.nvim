@@ -2,8 +2,6 @@ return {
   'echasnovski/mini.nvim',
   config = function()
     -- CUSTOM >>
-    require('mini.diff').setup()
-
     local minifiles = require 'mini.files'
     minifiles.setup {
       options = {
