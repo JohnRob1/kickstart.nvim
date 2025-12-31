@@ -10,7 +10,11 @@ return {
     config = function()
       ---@type opencode.Opts
       vim.g.opencode_opts = {
-        -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
+        -- Your conftiguration, if any — see `lua/opencode/config.lua`, or "goto definition".
+        provider = {
+          enabled = 'tmux',
+          tmux = {},
+        },
       }
 
       -- Required for `opts.auto_reload`.
@@ -20,21 +24,27 @@ return {
       vim.keymap.set({ 'n', 'x' }, '<leader>a', function()
         require('opencode').ask('@this: ', { submit = true })
       end, { desc = 'Ask opencode' })
+
       vim.keymap.set({ 'n', 'x' }, '<leader>x', function()
         require('opencode').select()
       end, { desc = 'Execute opencode action…' })
+
       vim.keymap.set({ 'n', 'x' }, 'ga', function()
         require('opencode').prompt '@this'
       end, { desc = 'Add to opencode' })
+
       vim.keymap.set({ 'n', 't' }, '<C-.>', function()
         require('opencode').toggle()
       end, { desc = 'Toggle opencode' })
+
       vim.keymap.set('n', '<S-C-u>', function()
         require('opencode').command 'session.half.page.up'
       end, { desc = 'opencode half page up' })
+
       vim.keymap.set('n', '<S-C-d>', function()
         require('opencode').command 'session.half.page.down'
       end, { desc = 'opencode half page down' })
+
       vim.keymap.set('n', '+', '<leader>a', { desc = 'Increment', noremap = true })
       vim.keymap.set('n', '-', '<leader>x', { desc = 'Decrement', noremap = true })
     end,
